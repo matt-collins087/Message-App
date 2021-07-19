@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Friend = () => {
+
+const Friend = (props) => {
   return (
-    <div>
-      <h1>Matt</h1>
+    <div className="friend">
+      <img className="avatar" src={props.img} alt="avatar"></img>
+      <p>{props.name}</p>
+      <p>{props.id}</p>
     </div>
   )
 }

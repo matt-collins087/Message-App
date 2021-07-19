@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Friend from './Friend';
+import friendsList from '../friends.js';
 
 const FriendsList = () => {
+  const [friends, setFriends] = useState(friendsList);
+
   return (
-    <div>
+    <div className="friends-list">
       <h1>Friend's List</h1>
-      <Friend/>
+      {friends.map((friend, index) => {
+        return <Friend key={index} name={friend.name} img={friend.imgURL}/>
+      })}
     </div>
   )
 }
