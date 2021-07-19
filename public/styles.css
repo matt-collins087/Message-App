@@ -1,3 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+}
+
 body {
-  background-color: red;
+  background-color: rgb(77, 77, 77);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(255, 204, 93);
+  padding: 5px;
+}
+
+header h1 {
+  font-family: "Fredoka One", sans-serif;
+  font-size: 2.6em;
+  color: rgb(255, 204, 93)
+}
+
+.logo {
+  margin-right: 25px;
+  width: 75px;
+  height: 75px;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
 }
