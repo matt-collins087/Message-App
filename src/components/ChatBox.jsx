@@ -1,21 +1,43 @@
 import React, { useState } from 'react';
-import Picker from 'emoji-picker-react';
-import MoodIcon from '@material-ui/icons/Mood';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import SendIcon from '@material-ui/icons/Send';
+import EmojiButton from './EmojiButton';
 
-const ChatBox = () => {
-  const [newMessage, setNewMessage] = useState({});
-  const [chosenEmoji, setChosenEmoji] = useState(null);
-  const [isEmojiClicked, setIsEmojiClicked] = useState(false);
-
-  const emojiClicked = () => {
-    setIsEmojiClicked(!isEmojiClicked);
-  };
+const ChatBox = (props) => {
+  const [newMessage, setNewMessage] = useState({
+    name: '',
+    imgURL: '',
+    body: ''
+  });
 
   const onEmojiClick = (event, emojiObject) => {
-    setChosenEmoji(emojiObject);
+    setNewMessage((prevState) => {
+      return {
+        ...prevState,
+        body: prevState.body + emojiObject.emoji
+      }
+    })
+  };
+
+  const handleNewMessage = (e) => {
+    const { name, value } = e.target;
+    setNewMessage((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+        imgURL: 'https://image.flaticon.com/icons/png/512/147/147144.png'
+      }
+    });
+  };
+
+  const handleSendMessage = () => {
+    props.addMessage(newMessage);
+    setNewMessage({
+      name: '',
+      imgURL: '',
+      body: ''
+    });
   };
 
   const useStyles = makeStyles((theme) => ({
@@ -37,19 +59,17 @@ const ChatBox = () => {
       <div className="chat-box">
         <div className="chat-box-input">
           <label>Name:</label>
-          <input type="text" placeholder="Enter name..."></input>
+          <input onChange={handleNewMessage} type="text" name="name" placeholder="Enter name..." value={newMessage.name}></input>
         </div>
-        <textarea row="15" cols="40" placeholder="Enter Message..."></textarea>
+        <textarea onChange={handleNewMessage} row="15" name="body" cols="40" placeholder="Enter Message..." value={newMessage.body}></textarea>
       </div>
       <div className="send-button">
-        <button className="emoji-button" onClick={emojiClicked}><MoodIcon /></button>
-        {isEmojiClicked && <Picker disableSearchBar="true" disableSkinTonePicker="true" onEmojiClick={onEmojiClick} />}
+        <EmojiButton onEmojiClick={onEmojiClick}/>
         <Button
+          onClick={handleSendMessage}
           variant="contained"
-          color="warning"
           className={classes.button}
-          endIcon={<SendIcon />}
-        >
+          endIcon={<SendIcon />}>
           Send
         </Button>
       </div>
