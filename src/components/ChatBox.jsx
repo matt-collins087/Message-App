@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import SendIcon from '@material-ui/icons/Send';
 
 const ChatBox = () => {
+  const [newMessage, setNewMessage] = useState({});
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [isEmojiClicked, setIsEmojiClicked] = useState(false);
 
@@ -25,7 +26,7 @@ const ChatBox = () => {
       '&:hover': {
         backgroundColor: "rgb(90, 90, 90)",
         color: "rgb(253, 201, 90)",
-    },
+      },
     },
   }));
 
@@ -34,19 +35,23 @@ const ChatBox = () => {
   return (
     <div className="chat-box-container">
       <div className="chat-box">
-        <textarea row="15" cols="40" placeholder="Send Message..."></textarea>
-        <button onClick={emojiClicked}><MoodIcon/></button>
-        {isEmojiClicked && <Picker disableSearchBar="true" disableSkinTonePicker="true" onEmojiClick={onEmojiClick} />}
+        <div className="chat-box-input">
+          <label>Name:</label>
+          <input type="text" placeholder="Enter name..."></input>
+        </div>
+        <textarea row="15" cols="40" placeholder="Enter Message..."></textarea>
       </div>
       <div className="send-button">
-      <Button
-        variant="contained"
-        color="warning"
-        className={classes.button}
-        endIcon={<SendIcon/>}
-      >
-        Send
-      </Button>
+        <button className="emoji-button" onClick={emojiClicked}><MoodIcon /></button>
+        {isEmojiClicked && <Picker disableSearchBar="true" disableSkinTonePicker="true" onEmojiClick={onEmojiClick} />}
+        <Button
+          variant="contained"
+          color="warning"
+          className={classes.button}
+          endIcon={<SendIcon />}
+        >
+          Send
+        </Button>
       </div>
     </div>
   )
