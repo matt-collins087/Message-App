@@ -43,11 +43,11 @@ const ChatBox = (props) => {
   const useStyles = makeStyles((theme) => ({
     button: {
       margin: theme.spacing(1),
-      color: "rgb(255, 204, 93)",
-      backgroundColor: "rgb(77, 77, 77)",
+      color: "#fff",
+      backgroundColor: "rgb(42, 65, 90)",
       '&:hover': {
-        backgroundColor: "rgb(90, 90, 90)",
-        color: "rgb(253, 201, 90)",
+        backgroundColor: "rgb(45, 70, 110)",
+        color: "#fff",
       },
     },
   }));
@@ -67,6 +67,7 @@ const ChatBox = (props) => {
         <EmojiButton onEmojiClick={onEmojiClick}/>
         <Button
           onClick={handleSendMessage}
+          color="primary"
           variant="contained"
           className={classes.button}
           endIcon={<SendIcon />}>
