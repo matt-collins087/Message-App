@@ -42,7 +42,7 @@ const ChatBox = (props) => {
 
   const useStyles = makeStyles((theme) => ({
     button: {
-      margin: theme.spacing(1),
+      marginTop: theme.spacing(2),
       color: "#fff",
       backgroundColor: "rgb(42, 65, 90)",
       '&:hover': {

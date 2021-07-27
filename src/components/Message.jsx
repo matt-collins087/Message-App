@@ -8,6 +8,7 @@ const Message = (props) => {
         <h3>{props.message.name}</h3>
       </div>
       <p>{props.message.body}</p>
+      <div></div>
     </div>
   )
 }

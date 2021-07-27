@@ -66,7 +66,7 @@ header h1 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-top: 10px;
   padding: 15px;
 }
@@ -82,11 +82,12 @@ header h1 {
   height: 25%;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  align-items: center;
+  padding: 20px;
   margin: 10px;
-  border: 1px solid rgb(255, 204, 93);
+  box-shadow: 1px 1px 5px -1px rgb(139, 139, 139);
+  border-radius: 10px;
 }
-
 
 footer {
   color: rgb(150, 150, 150);
@@ -151,18 +152,24 @@ footer {
 }
 
 .emoji-button {
-  width: 50px;
+  margin-top: 8px;
+  width: 45px;
+  height: 35px;
   border: none;
   padding: 2px;
   cursor: pointer;
-  background-color: rgb(255, 215, 129);
+  background-color: rgb(253, 202, 91);
   border-radius: 5px;
 }
 
 .chat-box textarea {
-  width: 400px;
-  height: 97px;
+  width: 450px;
+  height: 105px;
   font-size: 1.4em;
+  border: 1px solid rgb(117, 117, 117);
+  box-shadow: 1px 1px 8px rgb(185, 185, 185);
+  border-radius: 5px;
+  padding: 4px;
 }
 
 .send-button {
